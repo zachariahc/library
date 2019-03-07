@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>The Library</title>
+  <link rel="stylesheet" href="css/bootstrap.css"></link>
+  <link rel="stylesheet" href="css/layout.css"></link>
+  <link rel="stylesheet" href="css/login.css"></link>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/jqueryui.css"></link>
+</head>
+<body>
+  <div class="container-fluid">
+
+    <!-- Log In Header -->
+        <!-- <div class="row log-in-header">
+          <div class="col-md-12">
+            <span class="name-container">Hello Stranger, </span>
+            <a href="javascript:void(0);" data-toggle="modal" data-target="#login-modal">login</a>
+          </div>
+        </div> -->
+    <!-- END OF LOGIN HEADER -->
+
+    <!-- Log In Modal -->
+    <!-- <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+    		<div class="loginmodal-container">
+    			<h1>Login to Your Account</h1><br>
+    		  <form>
+            <input id="login-email" type="text" name="email" placeholder="Email" />
+            <input type="password" name="password" placeholder="Password" />
+            <input type="submit" name="login" class="login loginmodal-submit" value="Login" />
+    		  </form>
+
+    		  <div class="login-help">
+    			<a href="javascript:void(0);" data-toggle="modal" data-target="#register-modal">Register</a> - <a href="#">Forgot Password</a>
+    		  </div>
+    		</div>
+    	</div>
+    </div> -->
+  <!-- END OF LOGIN MODAL -->
+
+
+
+  <!-- Register Modal -->
+<!-- <div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="registermodal-container">
+      <h1>Register a New Account</h1><br>
+      <form>
+        <input type="text" name="firstName" value="" placeholder="First Name" />
+        <input type="text" name="lastName" value="" placeholder="Last Name" />
+        <input id="register-email" type="text" name="email" placeholder="Email" />
+        <input type="password" name="password" placeholder="Password" />
+        <input type="submit" name="register" class="register registermodal-submit" value="Register" />
+      </form>
+    </div>
+  </div>
+</div> -->
+<!-- END OF REGISTER MODAL -->
+
+    <!-- Header -->
+    <header class="row">
+      <div class="col-sm-3 btn-column">
+        <button type="button" id="removeBooksModalBtn" class="btn btn-default btn-remove pull-left" data-toggle="modal" data-target="#remove-books-modal"><span class="glyphicon glyphicon-minus"></span> Remove Books</button>
+      </div>
+      <div class="col-sm-6 text-center">
+        <h1>The Library</h1>
+      </div>
+      <div class="col-sm-3 btn-column">
+        <button type="button" id="addBooksModalBtn" class="btn btn-default btn-add pull-right" data-toggle="modal" data-target="#add-books-modal"><span class="glyphicon glyphicon-plus"></span> Add Books</button>
+      </div>
+
+    </header>
+
+  </div>
+
+
+
+  <!-- Jumbotron -->
+
+  <div class="jumbotron">
+    <h2>This is what a library<br/> looked like when people<br/> actually read books</h2>
+  </div>
+
+  <div class="container-fluid">
+
+    <!-- Navbar -->
+
+<nav class="row navbar navbar-default">
+
+  <form id="search-form" class="navbar-form text-center">
+    <button id="show-all-books-button" class="btn btn-default pull-left" type="button" data-toggle="modal" data-target="#showBooksModal">Show
+      All Books</button>
+    <button id="random-book-button" class="btn btn-default pull-left" type="button" data-toggle="modal" >Suggest
+      Book</button>
+    <div class="form-group">
+      <input id="title-search-input" class="form-control" type="text" placeholder="Title" name="title">
+      <input id="author-search-input" class="form-control" type="text" placeholder="Author" name="author">
+    </div>
+    <button id="search-authors-button" type="submit" class="btn btn-default">Search</button>
+    <button id="random-author-button" class="btn btn-default pull-right" type="button" data-toggle="modal" >Random
+      Author</button>
+    <button id="show-authors-button" class="btn btn-default pull-right" type="button" data-toggle="modal" >Show
+      All Authors</button>
+  </form>
+
+</nav>
+
+
+    <!-- Modals -->
+
+    <!-- Add Books Modal -->
+    <div id="add-books-modal" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Add Book</h4>
+          </div>
+          <div class="modal-body">
+            <form class="clearfix" id="addBooksForm" autocomplete="off">
+              <div class="form-group">
+                <label for="title-add-input">Title *</label>
+                <input id="title-add-input" name="title" class="form-control" type="text" required="true" autofocus="autofocus">
+              </div>
+              <div class="row">
+                <div class="form-group col-xs-9">
+                  <label for="author-add-input">Author *</label>
+                  <input id="author-add-input" name="author" class="form-control" type="text" required="true">
+                </div>
+                <div class="form-group col-xs-3">
+                  <label for="rating-add-input">Star Rating</label>
+                  <input id="rating-add-input" name="rating" class="form-control" type="number" min="0" max="5">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-xs-6">
+                  <label for="pages-add-input">Pages</label>
+                  <input id="pages-add-input" name="numberOfPages" class="form-control" type="number" placeholder="300">
+                </div>
+                <div class="form-group col-xs-6">
+                  <label for="date-add-input">Publication Date</label>
+                  <input id="date-add-input" name="publishDate" class="form-control" type="date" placeholder="2019-01-01">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="synopsis-add-input">Synopsis</label><br>
+                <textarea id="synopsis-add-input" name="synopsis" cols="75" rows="5" maxlength="250" placeholder="synopsis"></textarea>
+              </div>
+
+
+              <div class="form-group">
+                <label for="cover-add-input">Book cover</label>
+                <input id="cover-add-input" name="cover" type="file" accept=".jpg, .jpeg, .png" onchange="gAddBooksModal._handleImageUpload()">
+                <img id="addBookCoverImage" class="tableImg" alt="book cover image" src="assets/covers/generic_cover.png"/>
+              </div>
+              <button id="queue-book-button" class="btn btn-default pull-left" type="submit">Queue Book To Add</button>
+              <button id="add-books-button" class="btn btn-default btn-add pull-right" type="button" data-dismiss="modal">Add Books To Library</button>
+              <div class="counter-message pull-right">
+                <span id="add-books-counter">0</span> book(s) ready to add!&nbsp;&nbsp;<span class="glyphicon glyphicon-arrow-right"></span>&nbsp;&nbsp;&nbsp;
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Edit Books Modal -->
+    <div id="edit-book-modal" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Edit Book</h4>
+          </div>
+          <div class="modal-body">
+            <form class="clearfix" autocomplete="off">
+              <div class="form-group">
+                <label for="title-add-input">Title *</label>
+                <input id="title-edit-input" class="form-control" type="text" required="true" autofocus="autofocus">
+              </div>
+              <div class="row">
+                <div class="form-group col-xs-9">
+                  <label for="author-add-input">Author *</label>
+                  <input id="author-edit-input" class="form-control" type="text" required="true">
+                </div>
+                <div class="form-group col-xs-3">
+                  <label for="rating-add-input">Star Rating</label>
+                  <input id="rating-edit-input" class="form-control" type="number" min="0" max="5">
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-xs-6">
+                  <label for="pages-add-input">Pages</label>
+                  <input id="pages-edit-input" class="form-control" type="number" value="300">
+                </div>
+                <div class="form-group col-xs-6">
+                  <label for="date-add-input">Publication Date</label>
+                  <input id="date-edit-input" class="form-control" type="date" value="2017-01-01">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="synopsis-add-input">Synopsis</label><br>
+                <textarea id="synopsis-edit-input" name="synopsis" cols="75" rows="5" maxlength="250">No synopsis available.</textarea>
+              </div>
+              <div class="form-group">
+                <label for="cover-add-input">Book cover</label>
+                <input id="cover-edit-input" type="file" name="cover" accept=".jpg, .jpeg, .png" onchange="gAddBooksModal._handleImageUpload()">
+                <img id="editBookCoverImage" class="tableImg" alt="book cover image"/>
+              </div>
+              <button id="edit-book-button" class="btn btn-default btn-add pull-right" type="submit" data-dismiss="modal">Finish Editing Book</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Remove Books Modal -->
+    <div id="remove-books-modal" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Remove Books</h4>
+          </div>
+          <div class="modal-body">
+            <form id="remove-search-form" class="clearfix">
+              <div class="form-group">
+                <label for="title-remove-input">Remove By Title</label>
+                <input id="title-remove-input" class="form-control" type="text" placeholder="Title" autofocus="autofocus" name="title">
+              </div>
+              <div class="form-group">
+                <label for="author-remove-input">Remove By Author</label>
+                <input id="author-remove-input" class="form-control" type="text" placeholder="Author" name="author">
+              </div>
+              <button id="remove-book-button" class="btn btn-default btn-remove pull-right" type="button" data-dismiss="modal">Remove Books</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Book Display Modal -->
+    <div id="book-display-modal" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title"></h4>
+          </div>
+          <div class="modal-body">
+            <div class="col-sm-6 suggest-cover"></div>
+            <div class="col-sm-6 modal-sidebar">
+              <p class="suggest-synopsis"></p>
+              <p class="suggest-numberOfPages"></p>
+              <p class="suggest-publishDate"></p>
+              <p class="suggest-rating"></p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-default" type="button" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Authors Modal -->
+    <div id="author-display-modal" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title"></h4>
+          </div>
+          <div class="modal-body">
+            <ul id="author-display-ul">
+              <!-- jQuery will fill list items -->
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-default" type="button" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Table -->
+    <div id="table-page">
+      <table class="table table-striped table-hover" id="data-table">
+        <thead id="books-table-head">
+        </thead>
+        <tbody id="books-table">
+          <!-- jQuery will fill table rows -->
+        </tbody>
+      </table>
+      <button id="previous" class="btn btn-default">Previous</button>
+      <span id="middleNum"></span>
+      <button id="next" class="btn btn-default">Next</button>
+    </div>
+
+
+    <!-- Footer -->
+
+    <footer class="row">
+      <div class="footer-copyright text-center">
+        <p><em>&copy; 2017 - All Rights Reserved</em></p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Opensource Libraries -->
+  <script src="js/libraries/jquery.js" charset="utf-8"></script>
+  <script src="js/libraries/bootstrap.js" charset="utf-8"></script>
+  <!-- <script src="js/login.js" charset="utf-8"></script> -->
+  <script src="js/util.js" charset="utf-8"></script>
+  <script src="js/book.js" charset="utf-8"></script>
+  <script src="js/engine.js" charset="utf-8"></script>
+  <script src="js/showAuthorsModal.js" charset="utf-8"></script>
+  <script src="js/addBooksModal.js" charset="utf-8"></script>
+  <script src="js/editBookModal.js" charset="utf-8"></script>
+  <script src="js/removeBooksModal.js" charset="utf-8"></script>
+  <script src="js/suggestBookModal.js" charset="utf-8"></script>
+  <script src="js/DataTable.js" charset="utf-8"></script>
+
+
+  <!-- Random Book Modal -->
+
+
+  <script type="text/javascript">
+    window.bookShelf = []; //We only want one instance of this
+  </script>
+  <!--classes-->
+
+  <!--utils-->
+
+</body>
+</html>

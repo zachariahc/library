@@ -1,0 +1,173 @@
+/* GENERAL */
+
+body {
+  font-family: "Proxima Nova";
+  background-image: url("../assets/bookshelf_wallpaper.png");
+}
+
+.btn {
+  margin-right: 5px;
+}
+
+h1, h2 {
+  font-family: "Baskerville";
+}
+
+h1 {
+  font-size: 5.8em;
+  padding-top: 15px;
+}
+
+h2 {
+  font-size: 4em;
+  text-align: right;
+  color: white;
+}
+
+
+/* HEADER */
+
+header {
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+/* BUTTONS */
+
+.btn:focus {
+  background-color: white;
+}
+
+.btn-column .btn {
+  font-size: 1.1em;
+  padding: 15px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.btn .glyphicon {
+  font-size: 0.8em;
+}
+
+.btn:hover {
+  background-color: #e5e5e5;
+}
+
+.btn-remove:hover {
+  color: white;
+  background-color: #c13232;
+}
+
+.btn-add:hover {
+  color: white;
+  background-color: #327a32;
+}
+
+
+/* JUMBOTRON */
+
+.jumbotron {
+  height: 400px;
+  padding-right: 80px;
+  background-image: url("../assets/main_library.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-bottom: 0;
+}
+
+
+/* MODALS */
+
+.modal {
+  position: fixed;
+  padding-top: 150px;
+}
+
+.add-book-message {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: green;
+}
+
+.counter-message {
+  position: relative;
+  top: 8px;
+  font-weight: bold;
+  color: green;
+}
+
+#author-display-modal {
+  font-size: 1.4em;
+}
+
+#book-display-modal h4 {
+  font-size: 2em;
+  margin-left: 15px;
+}
+
+#book-display-modal .modal-body {
+  height: 330px;
+}
+
+#book-display-modal .modal-sidebar {
+  font-size: 1.1em;
+}
+
+.book-cover img {
+  width: 200px;
+  height: 300px;
+}
+
+/* NAVBAR */
+
+.navbar {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+
+/* TABLE */
+
+.table {
+  background-color: white;
+  border-left: 1px solid #e2e2e2;
+  border-right: 1px solid #e2e2e2;
+  margin-bottom: 0;
+}
+
+td {
+  cursor: pointer;
+}
+
+td.glyphicon {
+  color: #d3a20e;
+}
+
+.tableImg{
+  height: 100px;
+  width: 100px;
+}
+
+.star-rating {
+  color: #d3a20e;
+  line-height: 10px;
+}
+
+.book-title {
+  font-family: "Baskerville";
+  font-size: 1.2em;
+}
+
+.checked {
+  color: orange;
+}
+
+/* FOOTER */
+
+.footer-copyright {
+  padding: 15px 0;
+  background-color: #f9f9f9;
+  border-top: 1px solid #e2e2e2;
+}
